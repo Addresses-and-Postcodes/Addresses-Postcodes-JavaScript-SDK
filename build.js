@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 
-console.log('Building Addresses Postcodes Javascript SDK...');
+console.log('\nBuilding Addresses Postcodes Javascript SDK...');
 
 process.env.NODE_ENV = 'production';
 
@@ -10,7 +10,7 @@ webpack(webpackConfig, function (err, stats) {
     throw err;
   }
 
-  console.log('Build complete.');
+  console.log('Build complete.\n');
 
   process.stdout.write(stats.toString({
     colors: true,

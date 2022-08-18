@@ -19,5 +19,5 @@ export declare class Client {
      *
      * @param uri api endpoint
      */
-    get(uri: string): void;
+    get(uri: string): Promise<any>;
 }

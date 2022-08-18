@@ -1,6 +1,4 @@
-const webpack = require('webpack');
-
-const { version } = require('./package.json');
+let UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 module.exports = {
     name: 'addresses-postcodes-javascript-sdk',
@@ -8,8 +6,8 @@ module.exports = {
     entry: './index.js',
     output: {
         path: `${__dirname}/dist`,
-        filename: 'addresses-postcodes-sdk.js',
-        library: 'Addresses Postcodes Javascript SDK',
+        filename: 'addresses-postcodes-sdk.min.js',
+        library: 'AddressesPostcodesSDK',
         libraryTarget: 'umd'
     },
     target: 'web',
@@ -25,5 +23,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new UnminifiedWebpackPlugin()
+    ]
 }

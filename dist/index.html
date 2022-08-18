@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>JavaScript SDK</title>
 </head>
 <body>
     <script src="./addresses-postcodes-sdk.js"></script>
     <script>
-        let client = new Client('1616589158-361070052-462388701-1635564164')
-        console.log(client)
+        let client = new AddressesPostcodesSDK.Client('1616589158-361070052-462388701-1635564164')
+        let output = client.get('/api/v3/areas/AB/path')
     </script>
 </body>
 </html>

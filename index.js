@@ -14,12 +14,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-if (typeof window !== 'undefined' && typeof BUILT === 'undefined')
-    throw new Error('It looks like you are using the Nodejs version of Addresses Postcodes Javascript SDK.');
-/**
- * -------------------------
- * EXPORT
- * -------------------------
- */
 __exportStar(require("./src/Client"), exports);
 //# sourceMappingURL=index.js.map

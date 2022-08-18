@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Client = void 0;
+const axios = require('axios').default;
 /**
  * Client Class
  */
@@ -10,13 +11,9 @@ class Client {
      */
     constructor(apikey) {
         /**
-         * The api key.
-         */
-        this._api_key = "";
-        /**
          * Host
          */
-        this._host = "http://postcodes.test/api/v3/";
+        this._host = "https://postcodes.test/";
         this._api_key = apikey;
     }
     /**
@@ -24,7 +21,11 @@ class Client {
      *
      * @param uri api endpoint
      */
-    get(uri) {
+    async get(uri) {
+        let url = new URL(uri, this._host);
+        let endpoint = `${url.toString()}?key=${this._api_key}`;
+        // HTTP REQUEST|GET
+        axios.get(endpoint).then(response => { return response; }).catch(error => { return error; });
     }
 }
 exports.Client = Client;
