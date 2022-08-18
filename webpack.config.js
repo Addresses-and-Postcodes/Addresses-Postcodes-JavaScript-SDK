@@ -12,7 +12,7 @@ module.exports = {
     },
     target: 'web',
     watch: false,
-    devtool: false,
+    devtool: 'cheap-module-source-map',
     node: false,
     module: {
         rules: [
