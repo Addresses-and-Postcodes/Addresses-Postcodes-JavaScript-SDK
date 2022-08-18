@@ -1,27 +1,29 @@
-//webpack.config.js
-const path = require('path');
-let UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+const webpack = require('webpack');
+
+const { version } = require('./package.json');
 
 module.exports = {
-  plugins: [new UnminifiedWebpackPlugin()],
-  mode: "production",
-  devtool: "inline-source-map",
-  entry: {
-    bundle: "./index.ts",
-  },
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: "addresses-postcodes-sdk.min.js"
-  },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js"],
-  },
-  module: {
-    rules: [
-      { 
-        test: /\.tsx?$/,
-        loader: "ts-loader"
-      }
-    ]
-  }
+    name: 'addresses-postcodes-javascript-sdk',
+    mode: 'production',
+    entry: './index.js',
+    output: {
+        path: `${__dirname}/dist`,
+        filename: 'addresses-postcodes-sdk.js',
+        library: 'Addresses Postcodes Javascript SDK',
+        libraryTarget: 'umd'
+    },
+    target: 'web',
+    watch: false,
+    devtool: 'cheap-module-source-map',
+    node: false,
+    module: {
+        rules: [
+            {
+                test: /\.?js$/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
 }

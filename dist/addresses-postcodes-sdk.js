@@ -1,8 +1,2 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-var __webpack_exports__ = {};
-
-console.log("Hello World");
-
-/******/ })()
-;
+!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports["Addresses Postcodes Javascript SDK"]=t():e["Addresses Postcodes Javascript SDK"]=t()}(self,(()=>(()=>{"use strict";var e={45:function(e,t,o){var r=this&&this.__createBinding||(Object.create?function(e,t,o,r){void 0===r&&(r=o);var s=Object.getOwnPropertyDescriptor(t,o);s&&!("get"in s?!t.__esModule:s.writable||s.configurable)||(s={enumerable:!0,get:function(){return t[o]}}),Object.defineProperty(e,r,s)}:function(e,t,o,r){void 0===r&&(r=o),e[r]=t[o]}),s=this&&this.__exportStar||function(e,t){for(var o in e)"default"===o||Object.prototype.hasOwnProperty.call(t,o)||r(t,e,o)};if(Object.defineProperty(t,"__esModule",{value:!0}),"undefined"!=typeof window&&"undefined"==typeof BUILT)throw new Error("It looks like you are using the Nodejs version of Addresses Postcodes Javascript SDK.");s(o(561),t)},561:(e,t)=>{Object.defineProperty(t,"__esModule",{value:!0}),t.Client=void 0,t.Client=class{constructor(e){this._api_key="",this._host="http://postcodes.test/api/v3/",this._api_key=e}get(e){}}}},t={};return function o(r){var s=t[r];if(void 0!==s)return s.exports;var i=t[r]={exports:{}};return e[r].call(i.exports,i,i.exports,o),i.exports}(45)})()));
+//# sourceMappingURL=addresses-postcodes-sdk.js.map

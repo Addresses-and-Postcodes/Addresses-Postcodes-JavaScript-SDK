@@ -2,32 +2,33 @@
   "name": "addresses-postcodes-javascript-sdk",
   "version": "1.0.0",
   "description": "JavaScript Postcode Lookup SDK",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "author": "Moussa Ball <moiseball20155@gmail.com>",
   "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-ts": "tsc --build tsconfig.json",
+    "build": "npm run build-ts && node build.js"
   },
-  "keywords": [],
-  "author": "Moussa Ball",
+  "keywords": [
+    "addresses",
+    "postcodes",
+    "sdk"
+  ],
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.27.2",
-    "unminified-webpack-plugin": "^3.0.0"
-  },
   "devDependencies": {
-    "ts-loader": "^9.3.1",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-consistent-codestyle": "^1.16.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-microsoft-contrib": "^6.2.0",
-    "typescript": "^4.7.4",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
-  }
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "engines": {
+    "node": ">= 12.14.1"
+  },
+  "files": [
+    "dist/**/*",
+    "index.js",
+    "index.d.ts",
+    "src/**/*.js",
+    "src/**/*.d.ts",
+    "src/**/*.json"
+  ]
 }

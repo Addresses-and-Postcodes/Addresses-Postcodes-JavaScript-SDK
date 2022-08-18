@@ -1,16 +1,21 @@
 {
-  "compilerOptions": {
-    "module": "es2015",
-    "lib": [
-      "dom",
-      "es2015"
+    "compilerOptions": {
+        "declaration": true,
+        "listEmittedFiles": true,
+        "module": "commonjs",
+        "target": "es2020",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "baseUrl": ".",
+        "resolveJsonModule": true,
+        "esModuleInterop": true
+    },
+    "rootDir": "src/",
+    "include": [
+        "index.ts",
+        "src/**/*.ts"
     ],
-    "types": [],
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
-    "strict": true, /* Enable all strict type-checking options. */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
-  }
+    "exclude": [
+        "node_modules"
+    ]
 }
