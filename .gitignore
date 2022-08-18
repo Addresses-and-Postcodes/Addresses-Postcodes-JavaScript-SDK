@@ -1,9 +1,29 @@
 # IDE
+.idea
 .vscode
 
-# Folders
-node_modules
+# Node
+*.log
+node_modules/
+
+# Other
+.DS_STORE
+*#
+*~
 
 # Files
 yarn.lock
 package-lock.json
+
+# typescript
+*.d.ts
+*.js.map
+
+# Debug snippets
+test-*.js
+
+# Typescript related files
+*.d.ts
+*.js.map
+index.js
+src/**/*.js

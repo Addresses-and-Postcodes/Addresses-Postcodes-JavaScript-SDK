@@ -5,8 +5,8 @@
   "author": "Moussa Ball <moiseball20155@gmail.com>",
   "scripts": {
     "build-ts": "tsc --build tsconfig.json",
-    "build": "npm run build-ts && node build.js",
-    "serve": "nodemon server.js"
+    "build": "npm run build-ts && node build.js && npm run clean",
+    "clean": "tsc --build --clean"
   },
   "keywords": [
     "addresses",
