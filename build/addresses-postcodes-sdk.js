@@ -2348,25 +2348,25 @@ const axios = (__webpack_require__(559)["default"]);
 
 class Client {
   /**
-   * constructor.
-   */
+     * constructor.
+     */
   constructor(apikey) {
     /**
-     * Host
-     */
-    this._host = "https://postcodes.test/";
+       * Host
+       */
+    this._host = 'https://postcodes.test/';
     this._api_key = apikey;
   }
   /**
-   * HTTP Request|GET
-   *
-   * @param uri api endpoint
-   */
+     * HTTP Request|GET
+     *
+     * @param uri api endpoint
+     */
 
 
   async get(uri) {
-    let url = new URL(uri, this._host);
-    let endpoint = `${url.toString()}?key=${this._api_key}`; // HTTP REQUEST|GET
+    const url = new URL(uri, this._host);
+    const endpoint = `${url.toString()}?key=${this._api_key}`; // HTTP REQUEST|GET
 
     axios.get(endpoint).then(response => {
       return response;

@@ -4,7 +4,11 @@
 
 # Node
 *.log
-node_modules/
+node_modules
+.nyc_output
+
+# Compiled files
+coverage/
 
 # Other
 .DS_STORE
