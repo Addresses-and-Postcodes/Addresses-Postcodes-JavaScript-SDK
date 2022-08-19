@@ -7,3 +7,6 @@ index.js
 src/**/*.js
 src/**/*.d.ts
 src/**/*.js.map
+
+# Webpack
+webpack.config.js
