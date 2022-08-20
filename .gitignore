@@ -9,6 +9,7 @@ node_modules
 
 # Compiled files
 coverage/
+build/
 
 # Other
 .DS_STORE
