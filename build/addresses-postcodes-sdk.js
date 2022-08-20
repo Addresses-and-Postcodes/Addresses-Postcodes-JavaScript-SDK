@@ -2340,7 +2340,15 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.Client = void 0;
 
-const axios = (__webpack_require__(559)["default"]);
+const Addresses_1 = __webpack_require__(413);
+
+const Boundaries_1 = __webpack_require__(387);
+
+const Postcodes_1 = __webpack_require__(933);
+
+const Sectors_1 = __webpack_require__(516);
+
+const HttpClient_1 = __webpack_require__(327);
 /**
  * Client Class
  */
@@ -2348,14 +2356,21 @@ const axios = (__webpack_require__(559)["default"]);
 
 class Client {
   /**
-     * constructor.
-     */
+    * Constructor
+    *
+    * @param apikey The api key.
+    */
   constructor(apikey) {
     /**
-       * Host
-       */
+      * Host
+      */
     this._host = 'https://postcodes.test/';
     this._api_key = apikey;
+    this._httpClient = new HttpClient_1.HttpClient();
+  }
+
+  get apiKey() {
+    return this._api_key;
   }
   /**
      * HTTP Request|GET
@@ -2364,20 +2379,357 @@ class Client {
      */
 
 
-  async get(uri) {
+  get(uri) {
+    let query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     const url = new URL(uri, this._host);
-    const endpoint = `${url.toString()}?key=${this._api_key}`; // HTTP REQUEST|GET
+    const endpoint = `${url.toString()}?key=${this._api_key}`;
+    return this._httpClient.get(endpoint, query);
+  }
+  /**
+   * Instance of Boundaries.
+   *
+   * @returns Boundaries
+   */
 
-    axios.get(endpoint).then(response => {
-      return response;
-    }).catch(error => {
-      return error;
-    });
+
+  boundaries() {
+    return new Boundaries_1.Boundaries(this);
+  }
+  /**
+   * Instance of Sectors
+   *
+   * @returns Sectors
+   */
+
+
+  sectors() {
+    return new Sectors_1.Sectors(this);
+  }
+  /**
+   * Instance of Postcodes
+   *
+   * @returns Postcodes
+   */
+
+
+  postcodes() {
+    return new Postcodes_1.Postcodes(this);
+  }
+  /**
+   * Instance of Addresses
+   *
+   * @returns Addresses
+   */
+
+
+  addresses() {
+    return new Addresses_1.Addresses(this);
   }
 
 }
 
 exports.Client = Client;
+
+/***/ }),
+
+/***/ 413:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Addresses = void 0;
+
+const EndpointBase_1 = __webpack_require__(79);
+/**
+ * Endpoint Addresses
+ */
+
+
+class Addresses extends EndpointBase_1.EndpointBase {
+  /**
+   * Retrieve a property by building name or number and postcode.
+   *
+   * @param building Name or number of the building being searched for.
+   * @param postcode Postcode being searched.
+   * @returns A property by building name or number and postcode.
+   */
+  searchForProperty(building, postcode) {
+    const key = '&' + new URLSearchParams({
+      key: this.client.apiKey
+    }).toString();
+    const uri = '&' + new URLSearchParams({
+      building: building,
+      postcode: postcode
+    }).toString();
+    return this.client.get(`/api/v3/paf/properties/lookup`, key + uri);
+  }
+
+}
+
+exports.Addresses = Addresses;
+
+/***/ }),
+
+/***/ 387:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Boundaries = void 0;
+
+const EndpointBase_1 = __webpack_require__(79);
+/**
+ * Endpoint Boundaries
+ */
+
+
+class Boundaries extends EndpointBase_1.EndpointBase {
+  /**
+   * Retrieve a list of coordinates to produce a polygon around the postcode area.
+   *
+   * @param area Any part of a postcode, but must include the area.
+   * @returns List of coordinates around the postcode area.
+   */
+  async getAreaBoundaryPath(area) {
+    return this.client.get(`/api/v3/areas/${area}/path`);
+  }
+  /**
+   * Retrieve a list of coordinates to produce a polygon around the postcode sector.
+   *
+   * @param sector Any part of a postcode, but must include the sector.
+   * @returns List of coordinates around the postcode sector.
+   */
+
+
+  async getSectorBoundaryPath(sector) {
+    return this.client.get(`/api/v3/sectors/${sector}/path`);
+  }
+
+}
+
+exports.Boundaries = Boundaries;
+
+/***/ }),
+
+/***/ 79:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.EndpointBase = void 0;
+
+const Helpers_1 = __webpack_require__(182);
+/**
+ * class EndpointBase
+ */
+
+
+class EndpointBase {
+  /**
+   * Constructor
+   *
+   * @param client The client instance.
+   */
+  constructor(client) {
+    this.client = client;
+    this.helpers = new Helpers_1.Helpers();
+  }
+
+}
+
+exports.EndpointBase = EndpointBase;
+
+/***/ }),
+
+/***/ 933:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Postcodes = void 0;
+
+const EndpointBase_1 = __webpack_require__(79);
+/**
+ * Endpoint Postcodes
+ */
+
+
+class Postcodes extends EndpointBase_1.EndpointBase {
+  /**
+     * Retrieve a count of postcodes within a polygon.
+     *
+     * @param path array of [lat, lng] values of the polygon.
+     * @returns count of postcodes.
+     */
+  postcodeCountByPolygon(path) {
+    const uri = this.helpers.pathPolygonConverter(path);
+    return this.client.get('/api/v3/postcodes/total/by/path', uri);
+  }
+  /**
+   * Retrieve a list of postcodes within a polygon.
+   *
+   * @param path array of [lat, lng] values of the polygon.
+   * @returns list of postcodes.
+   */
+
+
+  postcodeListByPolygon(path) {
+    const uri = this.helpers.pathPolygonConverter(path);
+    return this.client.get('/api/v3/postcodes/list/by/path', uri);
+  }
+  /**
+   * Retrieve the geographical path of a postcode.
+   *
+   * @param postcode The full postcode.
+   * @returns The geographical path of a postcode.
+   */
+
+
+  getGeographicalPathOfPostcode(postcode) {
+    return this.client.get(`/api/v3/postcodes/${postcode}/geo/path`);
+  }
+
+}
+
+exports.Postcodes = Postcodes;
+
+/***/ }),
+
+/***/ 516:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Sectors = void 0;
+
+const EndpointBase_1 = __webpack_require__(79);
+/**
+ * Endpoint Sectors
+ */
+
+
+class Sectors extends EndpointBase_1.EndpointBase {
+  /**
+     * Retrieve a count of properties within a polygon and the polygon coordinates.
+     *
+     * @param sector The full postcode sector.
+     * @returns properties within a polygon and the polygon coordinates.
+     */
+  async getSectorCountPath(sector) {
+    return this.client.get(`/api/v3/sectors/${sector}/total`);
+  }
+
+}
+
+exports.Sectors = Sectors;
+
+/***/ }),
+
+/***/ 182:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Helpers = void 0;
+/**
+ * class Helpers
+ */
+
+class Helpers {
+  /**
+     * Convert array path to string url.
+     *
+     * @param path Array containing several latitude and longitude as parameters.
+     * @returns All path in string url.
+     */
+  pathPolygonConverter(path) {
+    let uri = '';
+
+    for (const key in path) {
+      uri += `&path[${key}][lat]=${path[key]['lat']}&path[${key}][lng]=${path[key]['lng']}`;
+    }
+
+    return uri;
+  }
+
+}
+
+exports.Helpers = Helpers;
+
+/***/ }),
+
+/***/ 327:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.HttpClient = void 0;
+
+const axios_1 = __importDefault(__webpack_require__(559));
+
+class HttpClient {
+  /**
+   * HttpRequest|GET
+   *
+   * @param uri The uri to call.
+   * @returns AxiosResponse
+   */
+  async get(uri) {
+    let query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    try {
+      const {
+        data
+      } = await axios_1.default.get(uri + query);
+
+      if (data.hasOwnProperty('error')) {
+        throw new Error(data.error);
+      }
+
+      return data;
+    } catch (error) {
+      console.error(error.message);
+      return {};
+    }
+  }
+
+}
+
+exports.HttpClient = HttpClient;
 
 /***/ })
 
