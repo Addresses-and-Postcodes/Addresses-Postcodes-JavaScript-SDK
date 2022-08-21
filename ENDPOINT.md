@@ -9,7 +9,9 @@
 
 ### Postcodes
 - Postcode count by Polygon ✅
+
 - Postcode list by polygon ❌ => {exception: "ErrorException", file: app\Http\Controllers\Api\PostcodeController.php", line: 137, message: "count(): Parameter must be an array or an object that implements Countable"}
+
 - Get the geographical path of a postcode ✅
 
 ### Addresses
@@ -23,6 +25,7 @@
 }
 
 - Properties count by line polygon ❌ => 404 Error Route Not Found
+
 - Properties count by postcode ✅
 
 ### Postcode Information

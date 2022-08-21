@@ -64,4 +64,14 @@ export class Addresses extends EndpointBase {
         const rad = '&' + new URLSearchParams({radius: radius}).toString()
         return this.client.get(`/api/v3/properties/list/by/line`, uri + rad)
     }
+
+    /**
+     * Retrieve a count of properties within a postcode.
+     * 
+     * @param postcode The full postcode.
+     * @returns A count of properties within a postcode.
+     */
+    public propertiesCountByPostcode(postcode: string): Promise<any> {
+        return this.client.get(`/api/v3/postcodes/${postcode}/total`)
+    }
 }

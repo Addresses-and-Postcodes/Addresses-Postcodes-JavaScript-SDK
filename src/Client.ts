@@ -1,5 +1,6 @@
 import { Addresses } from './Endpoints/Addresses';
 import { Boundaries } from './Endpoints/Boundaries';
+import { PostcodeInformation } from './Endpoints/PostcodeInformation';
 import { Postcodes } from './Endpoints/Postcodes';
 import { Sectors } from './Endpoints/Sectors';
 import { HttpClient } from './HttpClient';
@@ -82,5 +83,14 @@ export class Client {
    */
   public addresses(): Addresses {
     return new Addresses(this);
+  }
+
+  /**
+   * Instance of PostcodeInformation
+   * 
+   * @returns PostcodeInformation
+   */
+  public postcodeInformation(): PostcodeInformation {
+    return new PostcodeInformation(this)
   }
 }
