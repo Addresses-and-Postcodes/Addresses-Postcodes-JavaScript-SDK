@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>JavaScript SDK | Postcode to 2005 Statistical Wards API</title>
+</head>
+
+<body>
+    <script src="../../build/addresses-postcodes-sdk.min.js"></script>
+    <script>
+        let client = new AddressesPostcodesSDK.Client('1616589158-361070052-462388701-1635564164')
+        client.postcodeAPI().postcodeTo2005StatisticalWardsAPI('ab101ab').then(response => { console.log(response) })
+    </script>
+</body>
+
+</html>

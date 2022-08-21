@@ -37,14 +37,14 @@
 
 ### Postcode API
 - Postcodes Current and Terminated API ✅
-- Postcode to County API ❌
+- Postcode to County API ❌ => {"status":false,"error":"Oops! Something went wrong..."}
 - Postcode to Local Authority District ✅
-- Postcode to London Borough API ❌
-- Postcode to Electoral Ward / Division API ❌
-- Postcode to Civil Parish (England), Communities (Wales) API ❌
+- Postcode to London Borough API ❌ => {"status":false,"error":"Oops! Something went wrong..."}
+- Postcode to Electoral Ward / Division API ❌ => {"status":false,"error":"Oops! Something went wrong..."}
+- Postcode to Civil Parish (England), Communities (Wales) API ❌ => {"status":false,"error":"Oops! Something went wrong..."}
 - Postcode to National Grid Reference API ✅
 - Postcode to Former Strategic Health Authority ✅
-- Postcode to NHS England Regions (NHS ER) API ❌
+- Postcode to NHS England Regions (NHS ER) API ❌ => {"status":false,"error":"Oops! Something went wrong..."}
 - Postcode to UK Country Names & Codes API ✅
 - Postcode to Regions (RGN) (formerly Government Office Regions GOR) API ✅
 - Postcode to Standard Statistical Regions API ✅
@@ -53,7 +53,7 @@
 - Postcode to Local Learning and Skills Council ✅
 - Postcode to Travel to Work Areas (TTWA) API ✅
 - Postcode to Primary Care Trusts ✅
-- Postcode to Nomenclature of Units for Territorial Statistics (NUTS) ❌
+- Postcode to Nomenclature of Units for Territorial Statistics (NUTS) ❌ => {"status":false,"error":"Oops! Something went wrong..."}
 - Postcode to 2005 Statistical Wards API ✅
 - Postcode to 2001 National UK Census Output Area Classification names API ✅
 - Postcode to 2001 Census Area Statistics (CAS) Wards API ✅
