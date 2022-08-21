@@ -25,16 +25,15 @@
 }
 
 - Properties count by line polygon ❌ => 404 Error Route Not Found
-
 - Properties count by postcode ✅
 
 ### Postcode Information
 - Postcode GEO Information ✅
 
 ### Storing Information
-- Get Saved Searches ❌
-- Save a Search ❌
-- Delete a Search ❌
+- Get Saved Searches ❌ => 404 Error Route Not Found
+- Save a Search ❌ => 404 Error Route Not Found
+- Delete a Search ❌ => 404 Error Route Not Found
 
 ### Postcode API
 - Postcodes Current and Terminated API ✅

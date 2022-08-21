@@ -1,8 +1,10 @@
 import { Addresses } from './Endpoints/Addresses';
 import { Boundaries } from './Endpoints/Boundaries';
+import { PostcodeAPI } from './Endpoints/PostcodeAPI';
 import { PostcodeInformation } from './Endpoints/PostcodeInformation';
 import { Postcodes } from './Endpoints/Postcodes';
 import { Sectors } from './Endpoints/Sectors';
+import { StoringInformation } from './Endpoints/StoringInformation';
 import { HttpClient } from './HttpClient';
 
 /**
@@ -41,12 +43,39 @@ export class Client {
   /**
      * HTTP Request|GET
      * 
-     * @param uri api endpoint
+     * @param uri The endpoint to call.
+     * @param query The query params.
+     * @returns AxiosResponse
      */
   public get(uri: string, query = ''): any {
     const url = new URL(uri, this._host);
     const endpoint = `${url.toString()}?key=${this._api_key}`;
     return this._httpClient.get(endpoint, query);
+  }
+
+  /**
+   * HTTP Request|POST
+   * 
+   * @param uri The endpoint to call.
+   * @param data The query params
+   * @returns AxiosResponse
+   */
+  public post(uri: string, data: object): any {
+    const url = new URL(uri, this._host);
+    const endpoint = `${url.toString()}?key=${this._api_key}`;
+    return this._httpClient.post(endpoint, data)
+  }
+
+  /**
+   * HttpRequest|DELETE
+   * 
+   * @param uri The endpoint to call.
+   * @returns AxiosResponse
+   */
+  public delete(uri: string, query: string = ''): any {
+    const url = new URL(uri, this._host);
+    const endpoint = `${url.toString()}?key=${this._api_key}`;
+    return this._httpClient.delete(endpoint + query);
   }
 
   /**
@@ -92,5 +121,23 @@ export class Client {
    */
   public postcodeInformation(): PostcodeInformation {
     return new PostcodeInformation(this)
+  }
+
+  /**
+   * Instance of StoringInformation
+   * 
+   * @returns StoringInformation
+   */
+  public storingInformation(): StoringInformation {
+    return new StoringInformation(this)
+  }
+
+  /**
+   * Instance of PostcodeAPI
+   * 
+   * @returns PostcodeAPI
+   */
+  public postcodeAPI(): PostcodeAPI {
+    return new PostcodeAPI(this)
   }
 }
