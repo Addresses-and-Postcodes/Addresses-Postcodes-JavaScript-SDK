@@ -23,7 +23,8 @@
     "lint": "eslint ./src --ext .ts --config .eslintrc-ts.json",
     "lint:js": "eslint --max-warnings=0 ./test",
     "lint:fix": "eslint ./src --ext .ts --config .eslintrc-ts.json --fix",
-    "test": "nyc ./node_modules/.bin/_mocha 'test/**/*.test.ts'"
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
   },
   "license": "MIT",
   "devDependencies": {
@@ -31,6 +32,9 @@
     "@babel/preset-env": "^7.16.11",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@testdeck/mocha": "^0.2.0",
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.9",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
     "babel-loader": "^8.2.3",

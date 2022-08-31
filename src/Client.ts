@@ -24,7 +24,7 @@ export class Client {
   /**
     * Host
     */
-  private _host = 'https://postcodes.test/';
+  private _host = 'http://postcodes.test/';
 
   /**
     * Constructor
