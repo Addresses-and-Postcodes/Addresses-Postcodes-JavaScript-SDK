@@ -23,7 +23,7 @@
     "lint": "eslint ./src --ext .ts --config .eslintrc-ts.json",
     "lint:js": "eslint --max-warnings=0 ./test",
     "lint:fix": "eslint ./src --ext .ts --config .eslintrc-ts.json --fix",
-    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "test": "mocha -r ts-node/register test/**/*.test.ts --timeout 100000",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
   },
   "license": "MIT",
