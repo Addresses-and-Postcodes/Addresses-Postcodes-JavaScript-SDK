@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import { describe } from 'mocha';
 import { expect } from 'chai';
 
@@ -14,7 +16,7 @@ import { StoringInformation } from '../src/Endpoints/StoringInformation';
  * Tests Unit For Client.ts
  */
 describe('client.unit.test.ts', () => {
-  let client; const apiKey = "1616589158-361070052-462388701-1635564164"
+  let client; const apiKey = process.env.API_KEY !== 'undefined' && process.env.API_KEY ? process.env.API_KEY : ""
 
   /**
    * CREATE new instance of Client.
@@ -43,6 +45,7 @@ describe('client.unit.test.ts', () => {
   it('HTTP Request|GET Method', async () => {
     await client.get('/api/v3/areas/AB/path').then(response => {
       expect(Object.keys(response).length).to.not.equal(0)
+      expect(response).to.be.an('object');
       expect(response).to.have.property('status')
       expect(response.status).to.equal(true)
     });
@@ -55,6 +58,7 @@ describe('client.unit.test.ts', () => {
     const data = {name: 'my-first-search', params: {endpoint: '/api/v3/properties/total/by/path'}}
     await client.post('/v3/postcodes/door-drop', data).then(response => {
       expect(Object.keys(response).length).to.not.equal(0)
+      expect(response).to.be.an('object');
       expect(response).to.have.property('status')
       expect(response.status).to.equal(true)
     });
@@ -66,6 +70,7 @@ describe('client.unit.test.ts', () => {
   it('HTTP Request|DELETE Method', async () => {
     await client.delete('/v3/postcodes/door-drop', {id: '1'}).then(response => {
       expect(Object.keys(response).length).to.not.equal(0)
+      expect(response).to.be.an('object');
       expect(response).to.have.property('status')
       expect(response.status).to.equal(true)
     })

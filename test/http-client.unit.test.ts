@@ -27,6 +27,7 @@ describe('http-client.unit.test.ts', () => {
     it('GET Request Method', async () => {
         await httpClient.get('https://reqres.in/api/users/1').then(response => {
             expect(Object.keys(response).length).to.not.equal(0)
+            expect(response).to.be.an('object');
             expect(response).to.have.property('data')
             expect(Object.keys(response.data).length).to.not.equal(0)
             expect(response.data).to.have.property('id')
@@ -39,6 +40,7 @@ describe('http-client.unit.test.ts', () => {
     it('POST Request Method', async () => {
         await httpClient.post('https://reqres.in/api/users', {"name": "morpheus", "job": "leader"}).then(response => {
             expect(Object.keys(response).length).to.not.equal(0)
+            expect(response).to.be.an('object');
             expect(response).to.have.property('name')
             expect(response).to.have.property('job')
             expect(response).to.have.property('id')

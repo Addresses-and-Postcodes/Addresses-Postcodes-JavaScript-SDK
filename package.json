@@ -53,7 +53,8 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2"
   },
   "engines": {
     "node": ">= 12.22.1"

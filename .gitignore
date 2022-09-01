@@ -32,3 +32,6 @@ test-*.js
 *.js.map
 index.js
 src/**/*.js
+
+# Env file
+.env
