@@ -103,7 +103,7 @@ $ yarn coverage
 
 ## Documentation
 
-See the [`doc` directory](doc/) for more detailed documentation.
+See the [`doc`](doc/) directory for more detailed documentation.
 
 ## License
 
