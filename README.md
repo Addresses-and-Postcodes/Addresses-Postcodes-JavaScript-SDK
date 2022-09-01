@@ -23,13 +23,13 @@ This SDK can be used either in NodeJS or in a browser.
 #### Node.js 
 
 ```bash
-$ npm install @addresses-and-postcodes/addresses-postcodes-javascript-sdk
+$ npm install addresses-postcodes-javascript-sdk
 ```
 
 or if you use yarn
 
 ```bash
-$ yarn add @addresses-and-postcodes/addresses-postcodes-javascript-sdk
+$ yarn add addresses-postcodes-javascript-sdk
 ```
 
 #### Browser

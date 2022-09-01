@@ -1,5 +1,5 @@
 {
-  "name": "@addresses-and-postcodes/addresses-postcodes-javascript-sdk",
+  "name": "addresses-postcodes-javascript-sdk",
   "version": "1.0.0",
   "description": "JavaScript Postcode Lookup SDK",
   "author": "Moussa Ball <moiseball20155@gmail.com>",
