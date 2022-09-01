@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-  <img src="https://addressesandpostcodes.co.uk/assets/img/ap-logo-new.svg" style="max-width: 400px;"/>
+  <img src="https://addressesandpostcodes.co.uk/assets/img/ap-logo-new.svg" style="max-width: 45%;"/>
 </p>
 
 <br>
