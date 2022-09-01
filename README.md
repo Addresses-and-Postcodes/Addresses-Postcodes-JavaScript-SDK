@@ -77,6 +77,9 @@ A `dist` directory will be created, containing a browser version of this SDK.
 </body>
 </html>
 ```
+## Samples
+
+The [`samples`](samples/) folder contains examples for each api endpoint. Run only the HTML file, then look in the console part by pressing F12 to see the response return.
 
 ## Tests
 
