@@ -22,14 +22,14 @@ This SDK can be used either in NodeJS or in a browser.
 
 #### Node.js 
 
-```
-npm install addresses-postcodes-javascript-sdk
+```bash
+$ npm install addresses-postcodes-javascript-sdk
 ```
 
 or if you use yarn
 
-```
-yarn add addresses-postcodes-javascript-sdk
+```bash
+$ yarn add addresses-postcodes-javascript-sdk
 ```
 
 #### Browser
@@ -41,6 +41,13 @@ $ npm install
 $ npm run build:clean
 ````
 
+or if you use yarn
+
+```bash
+$ yarn install
+$ yarn build:clean
+````
+
 A `build` directory will be created, containing a browser version of this SDK.
 
 ```html
@@ -48,6 +55,47 @@ A `build` directory will be created, containing a browser version of this SDK.
 <script type="text/javascript" src="build/addresses-postcodes-sdk.js"></script>
 <!-- Minified -->
 <script type="text/javascript" src="build/addresses-postcodes-sdk.min.js"></script>
+```
+
+## Basic usage of `Addresses-Postcodes-JavaScript-SDK`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript SDK | Get area boundary path</title>
+</head>
+<body>
+    <script src="build/addresses-postcodes-sdk.min.js"></script>
+    <script>
+        let client = new AddressesPostcodesSDK.Client('API_KEY')
+        client.boundaries().getAreaBoundaryPath('AB').then(response => { console.log(response) })
+    </script>
+</body>
+</html>
+```
+
+## Tests
+
+> **WARNING**: Before running the tests, please add your API key in the `.env` file in project root. If the file does not exist, please create it.
+
+```dosini
+API_KEY="YOUR_API_KEY_HERE"
+```
+
+To run the tests, go to the root folder of the project in terminal and run the following command:
+
+```bash
+$ npm run coverage
+```
+
+or if you use yarn
+
+```bash
+$ yarn coverage
 ```
 
 ## Documentation
