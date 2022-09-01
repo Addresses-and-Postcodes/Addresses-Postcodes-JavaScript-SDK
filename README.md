@@ -38,7 +38,7 @@ To run the SDK in the browser, you have to build it yourself by cloning this rep
 
 ```bash
 $ npm install
-$ npm run build
+$ npm run build:clean
 ````
 
 A `build` directory will be created, containing a browser version of this SDK.
