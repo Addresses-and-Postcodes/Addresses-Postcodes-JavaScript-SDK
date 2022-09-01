@@ -4,16 +4,16 @@ import { EndpointBase } from './EndpointBase';
  * Endpoint Storing Information
  */
 export class StoringInformation extends EndpointBase {
-    /**
+  /**
      * Get a list of all your saves searches - By polygon or radius.
      * 
      * @returns AxiosResponse
      */
-    public getSavedSearches(): Promise<any> {
-        return this.client.get('/api/v3/postcodes/door-drop')
-    }
+  public getSavedSearches(): Promise<any> {
+    return this.client.get('/api/v3/postcodes/door-drop');
+  }
 
-    /**
+  /**
      * Save a Polygon or Radius search to your account.
      * 
      * @param name Give your search results a friendly name. Required
@@ -25,18 +25,18 @@ export class StoringInformation extends EndpointBase {
      * @param params[radius] Use if sending a radius | Distance in meters from the center lat, lng.
      * @returns AxiosResponse
      */
-    public saveSearch(params: object): Promise<any> {
-        return this.client.post('/api/v3/postcodes/door-drop', params)
-    }
+  public saveSearch(params: object): Promise<any> {
+    return this.client.post('/api/v3/postcodes/door-drop', params);
+  }
 
-    /**
+  /**
      * Remove / hide a Polygon or Radius search to your account.
      * 
      * @param id ID of the search you wish to delete.
      * @returns AxiosResponse
      */
-    public deleteSearch(id: string): Promise<any> {
-        const uri = '&' + new URLSearchParams({id: id}).toString()
-        return this.client.delete('/api/v3/postcodes/door-drop', uri)
-    }
+  public deleteSearch(id: string): Promise<any> {
+    const uri = '&' + new URLSearchParams({id: id}).toString();
+    return this.client.delete('/api/v3/postcodes/door-drop', uri);
+  }
 }

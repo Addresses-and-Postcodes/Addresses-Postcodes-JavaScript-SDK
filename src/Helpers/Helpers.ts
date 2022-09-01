@@ -11,7 +11,9 @@ export class Helpers {
   public pathPolygonConverter(path: string[]): string {
     let uri = '';
     for (const key in path) {
-      uri += `&path[${key}][lat]=${path[key]['lat']}&path[${key}][lng]=${path[key]['lng']}`;
+      if (Object.prototype.hasOwnProperty.call(path, key)) {
+        uri += `&path[${key}][lat]=${path[key]['lat']}&path[${key}][lng]=${path[key]['lng']}`;
+      }
     }
     return uri;
   }

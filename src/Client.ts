@@ -63,7 +63,7 @@ export class Client {
   public post(uri: string, data: object): any {
     const url = new URL(uri, this._host);
     const endpoint = `${url.toString()}?key=${this._api_key}`;
-    return this._httpClient.post(endpoint, data)
+    return this._httpClient.post(endpoint, data);
   }
 
   /**
@@ -72,7 +72,7 @@ export class Client {
    * @param uri The endpoint to call.
    * @returns AxiosResponse
    */
-  public delete(uri: string, query: string = ''): any {
+  public delete(uri: string, query = ''): any {
     const url = new URL(uri, this._host);
     const endpoint = `${url.toString()}?key=${this._api_key}`;
     return this._httpClient.delete(endpoint + query);
@@ -120,7 +120,7 @@ export class Client {
    * @returns PostcodeInformation
    */
   public postcodeInformation(): PostcodeInformation {
-    return new PostcodeInformation(this)
+    return new PostcodeInformation(this);
   }
 
   /**
@@ -129,7 +129,7 @@ export class Client {
    * @returns StoringInformation
    */
   public storingInformation(): StoringInformation {
-    return new StoringInformation(this)
+    return new StoringInformation(this);
   }
 
   /**
@@ -138,6 +138,6 @@ export class Client {
    * @returns PostcodeAPI
    */
   public postcodeAPI(): PostcodeAPI {
-    return new PostcodeAPI(this)
+    return new PostcodeAPI(this);
   }
 }

@@ -35,3 +35,6 @@ src/**/*.js
 
 # Env file
 .env
+
+# Folders
+test-package/
