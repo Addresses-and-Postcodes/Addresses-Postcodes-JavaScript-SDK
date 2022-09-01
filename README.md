@@ -1,4 +1,4 @@
-# Addresses Postcodes JAVASCRIPT SDK
+<h1 align="center">Addresses Postcodes JAVASCRIPT SDK</h1>
 
 <br>
 
