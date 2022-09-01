@@ -1,5 +1,5 @@
 {
-  "name": "addresses-postcodes-javascript-sdk",
+  "name": "@addresses-and-postcodes/addresses-postcodes-javascript-sdk",
   "version": "1.0.0",
   "description": "JavaScript Postcode Lookup SDK",
   "author": "Moussa Ball <moiseball20155@gmail.com>",
@@ -13,7 +13,7 @@
     "postcodes",
     "sdk"
   ],
-  "addresses-postcodes-javascript-sdk": "build/addresses-postcodes-sdk.js",
+  "addresses-postcodes-javascript-sdk": "dist/addresses-postcodes-sdk.js",
   "main": "index.js",
   "scripts": {
     "clean": "tsc --build --clean",
@@ -60,7 +60,7 @@
     "node": ">= 12.22.1"
   },
   "files": [
-    "build/**/*",
+    "dist/**/*",
     "index.js",
     "index.d.ts",
     "src/**/*.js",

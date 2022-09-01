@@ -5,7 +5,7 @@ module.exports = {
     mode: 'production',
     entry: './index.js',
     output: {
-        path: `${__dirname}/build`,
+        path: `${__dirname}/dist`,
         filename: 'addresses-postcodes-sdk.min.js',
         library: 'AddressesPostcodesSDK',
         libraryTarget: 'umd'

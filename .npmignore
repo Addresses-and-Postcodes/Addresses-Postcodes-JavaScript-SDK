@@ -20,10 +20,6 @@ dist/
 yarn.lock
 package-lock.json
 
-# typescript
-*.d.ts
-*.js.map
-
 # Debug snippets
 test-*.js
 

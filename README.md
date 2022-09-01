@@ -23,13 +23,13 @@ This SDK can be used either in NodeJS or in a browser.
 #### Node.js 
 
 ```bash
-$ npm install addresses-postcodes-javascript-sdk
+$ npm install @addresses-and-postcodes/addresses-postcodes-javascript-sdk
 ```
 
 or if you use yarn
 
 ```bash
-$ yarn add addresses-postcodes-javascript-sdk
+$ yarn add @addresses-and-postcodes/addresses-postcodes-javascript-sdk
 ```
 
 #### Browser
@@ -48,13 +48,13 @@ $ yarn install
 $ yarn build:clean
 ````
 
-A `build` directory will be created, containing a browser version of this SDK.
+A `dist` directory will be created, containing a browser version of this SDK.
 
 ```html
 <!-- Unminified -->
-<script type="text/javascript" src="build/addresses-postcodes-sdk.js"></script>
+<script type="text/javascript" src="dist/addresses-postcodes-sdk.js"></script>
 <!-- Minified -->
-<script type="text/javascript" src="build/addresses-postcodes-sdk.min.js"></script>
+<script type="text/javascript" src="dist/addresses-postcodes-sdk.min.js"></script>
 ```
 
 ## Basic usage of `Addresses-Postcodes-JavaScript-SDK`
@@ -69,7 +69,7 @@ A `build` directory will be created, containing a browser version of this SDK.
     <title>JavaScript SDK | Get area boundary path</title>
 </head>
 <body>
-    <script src="build/addresses-postcodes-sdk.min.js"></script>
+    <script src="dist/addresses-postcodes-sdk.min.js"></script>
     <script>
         let client = new AddressesPostcodesSDK.Client('API_KEY')
         client.boundaries().getAreaBoundaryPath('AB').then(response => { console.log(response) })
