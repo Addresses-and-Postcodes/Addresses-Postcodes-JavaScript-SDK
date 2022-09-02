@@ -59,6 +59,8 @@ A `dist` directory will be created, containing a browser version of this SDK.
 
 ## Basic usage of `Addresses-Postcodes-JavaScript-SDK`
 
+### Browser:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -77,6 +79,16 @@ A `dist` directory will be created, containing a browser version of this SDK.
 </body>
 </html>
 ```
+
+### Node.js:
+
+```js
+const { Client } = require('addresses-postcodes-javascript-sdk')
+
+let client = new Client('API_KEY')
+client.boundaries().getAreaBoundaryPath('AB').then(response => { console.log(response) })
+```
+
 ## Samples
 
 The [`samples`](samples/) folder contains examples for each api endpoint. Run only the HTML file, then look in the console part by pressing F12 to see the response return.
